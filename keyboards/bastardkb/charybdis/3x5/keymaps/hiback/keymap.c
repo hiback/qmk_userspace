@@ -63,7 +63,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 /** \brief QWERTY layout (3 rows, 10 columns). */
 #define LAYOUT_LAYER_BASE                                                                     \
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, \
-       KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_QUOT, \
+       KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, \
                       TAB_FUN, SPC_NAV, ESC_MED, ENT_SYM, BSP_NUM
 
@@ -255,3 +255,35 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // rgb_matrix.c.
 void rgb_matrix_update_pwm_buffers(void);
 #endif
+
+const uint16_t PROGMEM copy[]       = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM cut[]        = {KC_X, KC_V, COMBO_END};
+const uint16_t PROGMEM paste[]      = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM minus[]      = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM plus[]       = {KC_U, KC_O, COMBO_END};
+const uint16_t PROGMEM equal[]      = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM lpar[]       = {LSFT_T(KC_D), LCTL_T(KC_F), COMBO_END};
+const uint16_t PROGMEM rpar[]       = {RCTL_T(KC_J), RSFT_T(KC_K), COMBO_END};
+const uint16_t PROGMEM lsbrc[]      = {LALT_T(KC_S), LSFT_T(KC_D), COMBO_END};
+const uint16_t PROGMEM rsbrc[]      = {RSFT_T(KC_K), RALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM lcbrc[]      = {LALT_T(KC_S), LCTL_T(KC_F), COMBO_END};
+const uint16_t PROGMEM rcbrc[]      = {RCTL_T(KC_J), RALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM dqt[]        = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM sqt[]        = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM under[]      = {KC_M, KC_DOT, COMBO_END};
+const uint16_t PROGMEM tilde[]      = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM hash[]       = {KC_W, KC_R, COMBO_END};
+const uint16_t PROGMEM grv[]        = {KC_E, KC_R, COMBO_END};
+combo_t                key_combos[] = {
+    COMBO(copy, LGUI(KC_C)), COMBO(cut, LGUI(KC_X)), COMBO(paste, LGUI(KC_V)), COMBO(minus, KC_MINS), COMBO(plus, LSFT(KC_EQL)), COMBO(equal, KC_EQL), COMBO(lpar, LSFT(KC_9)), COMBO(rpar, LSFT(KC_0)), COMBO(lsbrc, KC_LBRC), COMBO(rsbrc, KC_RBRC), COMBO(lcbrc, LSFT(KC_LBRC)), COMBO(rcbrc, LSFT(KC_RBRC)), COMBO(dqt, LSFT(KC_QUOT)), COMBO(sqt, KC_QUOT), COMBO(under, LSFT(KC_MINS)), COMBO(tilde, LSFT(KC_GRV)), COMBO(hash, LSFT(KC_3)), COMBO(grv, KC_GRV),
+};
+
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SPC_NAV:
+        case BSP_NUM:
+            return QUICK_TAP_TERM - 60;
+        default:
+            return QUICK_TAP_TERM;
+    }
+}
