@@ -137,10 +137,10 @@ static uint16_t auto_pointer_layer_timer = 0;
  * `KC_DOT` is duplicated from the base layer.
  */
 #define LAYOUT_LAYER_NUMERAL                                                                  \
-    KC_LBRC,    KC_7,    KC_8,    KC_9, KC_RBRC, _______________DEAD_HALF_ROW_______________, \
-    KC_SCLN,    KC_4,    KC_5,    KC_6,  KC_EQL, ______________HOME_ROW_GACS_R______________, \
-     KC_GRV,    KC_1,    KC_2,    KC_3, KC_BSLS, _______________DEAD_HALF_ROW_______________, \
-                       KC_DOT,    KC_0, KC_MINS, XXXXXXX, _______
+    KC_MINS,    KC_7,    KC_8,    KC_9, KC_SLSH, _______________DEAD_HALF_ROW_______________, \
+       KC_0,    KC_4,    KC_5,    KC_6,  KC_DOT, ______________HOME_ROW_GACS_R______________, \
+  S(KC_EQL),    KC_1,    KC_2,    KC_3, S(KC_8), KC_LNG2, KC_LNG1, XXXXXXX, XXXXXXX, XXXXXXX, \
+                      _______, _______, _______, XXXXXXX, _______
 
 /**
  * \brief Symbols layer.
