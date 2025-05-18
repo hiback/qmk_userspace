@@ -46,11 +46,11 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif     // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 #define ESC_MED LT(LAYER_MEDIA, KC_ESC)
-#define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
-#define TAB_FUN LT(LAYER_FUNCTION, KC_TAB)
-#define ENT_SYM LT(LAYER_SYMBOLS, KC_ENT)
+#define SPC_POI LT(LAYER_POINTER, KC_SPC)
+#define TAB_NAV LT(LAYER_NAVIGATION, KC_TAB)
+#define ENT_FUN LT(LAYER_FUNCTION, KC_ENT)
 #define BSP_NUM LT(LAYER_NUMERAL, KC_BSPC)
-#define _L_PTR(KC) LT(LAYER_POINTER, KC)
+// #define _L_PTR(KC) LT(LAYER_POINTER, KC)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -65,7 +65,7 @@ static uint16_t auto_pointer_layer_timer = 0;
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, \
-                      TAB_FUN, SPC_NAV, ESC_MED, ENT_SYM, BSP_NUM
+                      TAB_NAV, SPC_POI, ESC_MED, ENT_FUN, BSP_NUM
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -91,10 +91,10 @@ static uint16_t auto_pointer_layer_timer = 0;
  * from the base layer to enable auto-repeat.
  */
 #define LAYOUT_LAYER_FUNCTION                                                                 \
-    _______________DEAD_HALF_ROW_______________, KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12, \
-    ______________HOME_ROW_GACS_L______________, KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11, \
-    _______________DEAD_HALF_ROW_______________, KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10, \
-                      XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX
+    KC_F12,   KC_F7,   KC_F8,   KC_F9,  KC_PSCR, _______________DEAD_HALF_ROW_______________,  \
+    KC_F11,   KC_F4,   KC_F5,   KC_F6,  KC_SCRL, ______________HOME_ROW_GACS_R______________,  \
+    KC_F10,   KC_F1,   KC_F2,   KC_F3,  KC_PAUS, _______________DEAD_HALF_ROW_______________,  \
+                      XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX
 
 /**
  * \brief Media layer.
@@ -110,10 +110,10 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 /** \brief Mouse emulation and pointer functions. */
 #define LAYOUT_LAYER_POINTER                                                                  \
-    QK_BOOT,  EE_CLR, XXXXXXX, DPI_MOD, S_D_MOD, S_D_MOD, DPI_MOD, XXXXXXX,  EE_CLR, QK_BOOT, \
-    ______________HOME_ROW_GACS_L______________, ______________HOME_ROW_GACS_R______________, \
-    _______, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SNIPING, DRGSCRL, _______, \
-                      KC_BTN2, KC_BTN1, KC_BTN3, KC_BTN3, KC_BTN1
+    QK_BOOT,  EE_CLR, XXXXXXX, DPI_MOD, S_D_MOD, XXXXXXX, S(KC_1), S(KC_2), S(KC_7),  KC_F12, \
+    ______________HOME_ROW_GACS_L______________, S(KC_8), KC_BTN1, KC_BTN3, KC_BTN2, S(KC_BSLS), \
+    DRGSCRL, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX, XXXXXXX, S(KC_5), S(KC_6), S(KC_4), KC_BSLS, \
+                      XXXXXXX, _______, XXXXXXX, _______, _______
 
 /**
  * \brief Navigation layer.
@@ -124,10 +124,10 @@ static uint16_t auto_pointer_layer_timer = 0;
  * base layer to avoid having to layer change mid edit and to enable auto-repeat.
  */
 #define LAYOUT_LAYER_NAVIGATION                                                               \
-    _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
-    ______________HOME_ROW_GACS_L______________, KC_CAPS, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, \
-    _______________DEAD_HALF_ROW_______________,  KC_INS, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, \
-                      XXXXXXX, _______, XXXXXXX,  KC_ENT, KC_BSPC
+    _______________DEAD_HALF_ROW_______________, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_MUTE, \
+    ______________HOME_ROW_GACS_L______________, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_DEL, \
+    _______________DEAD_HALF_ROW_______________, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, \
+                      _______, XXXXXXX, XXXXXXX,  KC_ENT, KC_BSPC
 
 /**
  * \brief Numeral layout.
@@ -186,6 +186,7 @@ static uint16_t auto_pointer_layer_timer = 0;
  *
  *     POINTER_MOD(LAYER_ALPHAS_QWERTY)
  */
+/*
 #define _POINTER_MOD(                                                  \
     L00, L01, L02, L03, L04, R05, R06, R07, R08, R09,                  \
     L10, L11, L12, L13, L14, R15, R16, R17, R18, R19,                  \
@@ -199,12 +200,13 @@ static uint16_t auto_pointer_layer_timer = 0;
              R25,         R26,         R27,         R28,  _L_PTR(R29), \
       __VA_ARGS__
 #define POINTER_MOD(...) _POINTER_MOD(__VA_ARGS__)
+*/
 
 #define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_wrapper(
-    POINTER_MOD(HOME_ROW_MOD_GACS(LAYOUT_LAYER_BASE))
+    HOME_ROW_MOD_GACS(LAYOUT_LAYER_BASE)
   ),
   [LAYER_FUNCTION] = LAYOUT_wrapper(LAYOUT_LAYER_FUNCTION),
   [LAYER_NAVIGATION] = LAYOUT_wrapper(LAYOUT_LAYER_NAVIGATION),
@@ -280,7 +282,7 @@ combo_t                key_combos[] = {
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case SPC_NAV:
+        case SPC_POI:
         case BSP_NUM:
             return QUICK_TAP_TERM - 60;
         default:
