@@ -37,6 +37,7 @@
 
 // Added
 #define CHARYBDIS_DRAGSCROLL_REVERSE_Y // inverts vertical scrolling
+#define AUTO_DRAG_ON_LAYER 2
 #define QUICK_TAP_TERM_PER_KEY
 #define QUICK_TAP_TERM 200
 #define COMBO_TERM 40
