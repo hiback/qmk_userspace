@@ -110,9 +110,9 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 /** \brief Mouse emulation and pointer functions. */
 #define LAYOUT_LAYER_POINTER                                                                  \
-    QK_BOOT,  EE_CLR, XXXXXXX, DPI_MOD, S_D_MOD, XXXXXXX, S(KC_1), S(KC_2), S(KC_7),  KC_F12, \
-    ______________HOME_ROW_GACS_L______________, S(KC_8), KC_BTN1, KC_BTN3, KC_BTN2, S(KC_BSLS), \
-    DRGSCRL, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX, XXXXXXX, S(KC_5), S(KC_6), S(KC_4), KC_BSLS, \
+      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5, XXXXXXX, S(KC_1), S(KC_2), S(KC_7),  KC_F12, \
+    KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL,  KC_F11, S(KC_8), KC_BTN1, KC_BTN3, KC_BTN2, S(KC_BSLS), \
+      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, XXXXXXX, S(KC_5), S(KC_6), S(KC_4), KC_BSLS, \
                       XXXXXXX, _______, XXXXXXX, _______, _______
 
 /**
@@ -124,9 +124,9 @@ static uint16_t auto_pointer_layer_timer = 0;
  * base layer to avoid having to layer change mid edit and to enable auto-repeat.
  */
 #define LAYOUT_LAYER_NAVIGATION                                                               \
-    _______________DEAD_HALF_ROW_______________, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_MUTE, \
+    QK_BOOT,  EE_CLR, XXXXXXX, DPI_MOD, S_D_MOD, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_MUTE, \
     ______________HOME_ROW_GACS_L______________, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_DEL, \
-    _______________DEAD_HALF_ROW_______________, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, \
+    DRGSCRL, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, \
                       _______, XXXXXXX, XXXXXXX,  KC_ENT, KC_BSPC
 
 /**
