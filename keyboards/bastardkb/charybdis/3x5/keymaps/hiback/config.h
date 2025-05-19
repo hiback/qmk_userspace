@@ -35,7 +35,8 @@
 // #define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #endif // POINTING_DEVICE_ENABLE
 
-//
+// Added
+#define CHARYBDIS_DRAGSCROLL_REVERSE_Y // inverts vertical scrolling
 #define QUICK_TAP_TERM_PER_KEY
 #define QUICK_TAP_TERM 200
 #define COMBO_TERM 40
