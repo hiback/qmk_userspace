@@ -139,7 +139,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define LAYOUT_LAYER_NUMERAL                                                                  \
     KC_MINS,    KC_7,    KC_8,    KC_9, KC_SLSH, _______________DEAD_HALF_ROW_______________, \
        KC_0,    KC_4,    KC_5,    KC_6,  KC_DOT, ______________HOME_ROW_GACS_R______________, \
-  S(KC_EQL),    KC_1,    KC_2,    KC_3, S(KC_8), KC_LNG2, KC_LNG1, XXXXXXX, XXXXXXX, XXXXXXX, \
+  S(KC_EQL),    KC_1,    KC_2,    KC_3, S(KC_8), XXXXXXX, KC_LNG1, KC_LNG2, XXXXXXX, XXXXXXX, \
                       _______, _______, _______, XXXXXXX, _______
 
 /**
